@@ -16,17 +16,17 @@ namespace Square.iOS
 		{
 			base.OnElementChanged(e);
 
+
+			nativeMap = Control as MKMapView;
+			formsMap = Element as CustomMap;
+
 			if (e.OldElement != null)
 			{
-				nativeMap = Control as MKMapView;
-				formsMap = e.OldElement as CustomMap;
 				nativeMap.Delegate = null;
 				formsMap.ItemsSource.CollectionChanged -= ItemsSource_CollectionChanged;
 			}
 			if (e.NewElement != null)
 			{
-				nativeMap = Control as MKMapView;
-				formsMap = e.NewElement as CustomMap;
 				nativeMap.Delegate = null;
 				nativeMap.Delegate = new MapDelegate(formsMap, nativeMap);
 				formsMap.ItemsSource.CollectionChanged += ItemsSource_CollectionChanged;

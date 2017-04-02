@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
 using Square;
@@ -41,7 +42,9 @@ namespace Square.Droid
 
 		void NativeMap_MarkerClick(object sender, GoogleMap.MarkerClickEventArgs e)
 		{
-
+			var marker = e.Marker;
+			var pin = GetCustomPin(marker);
+			formsMap.Navigate.Invoke(pin.Id);
 		}
 
 		void ItemsSource_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -61,6 +64,19 @@ namespace Square.Droid
 
 					nativeMap.AddMarker(markerWithIcon);
 				}
+			}
+		}
+
+		private CustomPin GetCustomPin(Marker annotation)
+		{
+			try
+			{
+				var formsMap = (CustomMap)Element;
+				return formsMap?.ItemsSource?.FirstOrDefault(pin => pin.Pin.Position.Latitude == annotation.Position.Latitude && pin.Pin.Position.Longitude == annotation.Position.Longitude);
+			}
+			catch (Exception ex)
+			{
+				return null;
 			}
 		}
 	}

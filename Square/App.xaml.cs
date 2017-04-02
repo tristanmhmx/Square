@@ -21,7 +21,7 @@ namespace Square
 
 			Initialize();
 
-			MainPage = new HomePage();
+			MainPage = new NavigationPage(new HomePage());
 		}
 
 		async void Initialize()
@@ -31,6 +31,7 @@ namespace Square
 				var location = await LocationService.GetLocationAsync(TimeSpan.FromSeconds(20));
 				CurrentPosition.Latitude = location.Latitude;
 				CurrentPosition.Longitude = location.Longitude;
+				await LocationService.StartListeningAsync(TimeSpan.FromSeconds(20), 100);
 				LocationService.PositionChanged += Location_PositionChanged;
 			}
 			catch (Exception e)

@@ -56,6 +56,7 @@
     </Compile>
     <Compile Include="ViewModels\LocationViewModel.cs" />
     <Compile Include="Models\LocationModel.cs" />
+    <Compile Include="Interfaces\IPhotoService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

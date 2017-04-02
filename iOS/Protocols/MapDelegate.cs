@@ -47,6 +47,12 @@ namespace Square.iOS
 			return annotationView;
 		}
 
+		public override void DidSelectAnnotationView(MKMapView mapView, MKAnnotationView view)
+		{
+			var annotation = view as CustomMkAnnotationView;
+			formsMap.Navigate.Invoke(annotation.Id);
+		}
+
 		CustomPin GetCustomPin(IMKAnnotation annotation)
 		{
 			try

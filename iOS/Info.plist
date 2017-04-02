@@ -46,5 +46,11 @@
 	<string>Necesitamos tu locación para ofrecerte los mejores establecimientos</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Necesitamos tu locación para ofrecerte los mejores establecimientos</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Necesitamos acceder</string>
 </dict>
 </plist>

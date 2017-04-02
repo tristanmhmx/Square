@@ -1,5 +1,17 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Square.LocationPage">
 	<ContentPage.Content>
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="200" />
+				<RowDefinition Height="50" />
+				<RowDefinition Height="100" />
+				<RowDefinition Height="70" />
+			</Grid.RowDefinitions>
+			<Image Source="{Binding PictureUrl}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="Fill" />
+			<Label Text="{Binding Label}" Grid.Row="2" />
+			<Label Text="{Binding Address}" Grid.Row="3" />
+			<Button Text="Tomar Foto" Command="{Binding TakePicture}" Grid.Row="4" />
+		</Grid>
 	</ContentPage.Content>
 </ContentPage>

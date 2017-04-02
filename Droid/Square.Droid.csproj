@@ -148,6 +148,7 @@
     <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable\Pin.png" />
+    <AndroidResource Include="Resources\drawable\TakePhotoButton.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Custom Renderers\" />

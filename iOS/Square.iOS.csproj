@@ -146,6 +146,7 @@
     <Folder Include="Protocols\" />
     <Folder Include="Dependencies\" />
     <Folder Include="Delegates\" />
+    <Folder Include="ViewControllers\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -164,10 +165,13 @@
     <Compile Include="Dependencies\LocationService.cs" />
     <Compile Include="Delegates\GeolocationSingleUpdateDelegate.cs" />
     <Compile Include="Dependencies\DataService.cs" />
+    <Compile Include="ViewControllers\CameraController.cs" />
+    <Compile Include="Dependencies\PhotoService.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Pin.png" />
     <BundleResource Include="Resources\me.png" />
+    <BundleResource Include="Resources\TakePhotoButton.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
