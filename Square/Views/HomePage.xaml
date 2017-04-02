@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:local="clr-namespace:Square" 
+	xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+	x:Class="Square.HomePage">
+	<ContentPage.BindingContext>
+		<local:HomeViewModel />
+	</ContentPage.BindingContext>
+	<Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0, 20, 0, 0">
+		<local:CustomMap
+            x:Name="MyMap"
+            IsShowingUser="true"
+            MapType="Street"
+			ItemsSource="{Binding Locations}" />
+		<StackLayout Orientation="Horizontal" HeightRequest="30" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+			<local:BorderedEntry Placeholder="Buscar" HorizontalOptions="FillAndExpand" HeightRequest="30" BorderColor="Navy" Text="{Binding SearchCriteria}" />
+			<Button Text="Buscar" HorizontalOptions="End" WidthRequest="50" HeightRequest="30" Command="{Binding SearchCommand}" />
+		</StackLayout>
+	</Grid>
+</ContentPage>
