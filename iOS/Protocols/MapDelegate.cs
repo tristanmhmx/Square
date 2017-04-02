@@ -36,7 +36,7 @@ namespace Square.iOS
 
 				annotationView = new CustomMkAnnotationView(annotation, customPin.Id)
 				{
-					Image = UIImage.FromFile("4Tb4Bbpjc")
+					Image = UIImage.FromFile("Pin")
 				};
 
 				((CustomMkAnnotationView)annotationView).Id = customPin.Id;

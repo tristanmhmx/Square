@@ -14,5 +14,10 @@ namespace Square
 			get { return (ObservableCollection<CustomPin>)GetValue(ItemsSourceProperty); }
 			set { SetValue(ItemsSourceProperty, value); }
 		}
+
+		public Action<string> Navigate = async (string obj) =>
+		{
+			await Application.Current.MainPage.Navigation.PushAsync(new LocationPage(obj));
+		};
 	}
 }

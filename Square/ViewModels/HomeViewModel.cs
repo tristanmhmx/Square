@@ -79,7 +79,7 @@ namespace Square
 
 		async void SearchPins(object obj)
 		{
-			var pin = await App.CurrentApp.DataBase.Table<Location>().Where(p => p.Label == SearchCriteria).FirstOrDefaultAsync();
+			var pin = await App.CurrentApp.DataBase.Table<Location>().Where(p => p.Label.Contains(SearchCriteria)).FirstOrDefaultAsync();
 			if (pin != null)
 			{
 				Locations.Add(new CustomPin
