@@ -7,7 +7,7 @@
 	<key>CFBundleName</key>
 	<string>Square</string>
 	<key>CFBundleIdentifier</key>
-	<string>mx.alset.square</string>
+	<string>mx.alset.squar</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
@@ -49,6 +49,7 @@
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
+		<string>remote-notification</string>
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Necesitamos acceder</string>

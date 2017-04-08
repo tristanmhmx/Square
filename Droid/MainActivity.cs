@@ -8,6 +8,7 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using System.Threading.Tasks;
+using Android.Gms.Common;
 
 namespace Square.Droid
 {
@@ -28,9 +29,38 @@ namespace Square.Droid
 
 
 			LoadApplication(new App());
+
+
+			if (IsPlayServicesAvailable())
+			{
+				var intent = new Intent(this, typeof(NotificationsIntentService));
+
+				StartService(intent);
+			}
+
 		}
+		public bool IsPlayServicesAvailable()
+		{
+			int resultCode = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this);
+			if (resultCode != ConnectionResult.Success)
+			{
+				if (GoogleApiAvailability.Instance.IsUserResolvableError(resultCode))
+				{
+
+				}
+				else
+				{
+					Finish();
+				}
+				return false;
+			}
+			else
+			{
+				return true;
+			}
 
 
 
+		}
 	}
 }

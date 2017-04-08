@@ -15,7 +15,6 @@ namespace Square.Droid
 		private CustomMap formsMap;
 		protected override void OnElementChanged(Xamarin.Forms.Platform.Android.ElementChangedEventArgs<Xamarin.Forms.Maps.Map> e)
 		{
-			base.OnElementChanged(e);
 
 			formsMap = (CustomMap)Element;
 
