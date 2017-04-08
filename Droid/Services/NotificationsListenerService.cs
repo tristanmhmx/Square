@@ -3,6 +3,7 @@ using Android.App;
 using Android.Content;
 using Android.Gms.Gcm;
 using Android.OS;
+using Xamarin.Forms;
 
 namespace Square.Droid
 {
@@ -29,6 +30,8 @@ namespace Square.Droid
 
 			var notificationManager = (NotificationManager)GetSystemService(Context.NotificationService);
 			notificationManager.Notify(0, notificationBuilder.Build());
+
+			MessagingCenter.Send(new LocationPage("1"), "Navigation");
 		}
 	}
 }

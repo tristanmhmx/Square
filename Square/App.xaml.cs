@@ -22,6 +22,12 @@ namespace Square
 			Initialize();
 
 			MainPage = new NavigationPage(new HomePage());
+			MessagingCenter.Subscribe<Page>(this, "Navigate", HandleAction);
+		}
+
+		void HandleAction(Page obj)
+		{
+			App.CurrentApp.MainPage.Navigation.PushAsync(obj);
 		}
 
 		async void Initialize()

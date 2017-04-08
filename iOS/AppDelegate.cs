@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using Xamarin.Forms;
 
 namespace Square.iOS
 {
@@ -39,6 +40,14 @@ namespace Square.iOS
 										UIRemoteNotificationType.Sound;
 				UIApplication.SharedApplication.RegisterForRemoteNotificationTypes(notificationTypes);
 			}
+
+			var keyName = new NSString("UIApplicationLaunchOptionsRemoteNotificationKey");
+            if (options?.Keys != null && options.Keys.Length != 0 && options.ContainsKey(keyName))
+            {
+                var pushOptions = options.ObjectForKey(keyName) as NSDictionary;
+
+				MessagingCenter.Send(new LocationPage("1"), "Navigation");
+            }
 
 			return base.FinishedLaunching(app, options);
 		}
