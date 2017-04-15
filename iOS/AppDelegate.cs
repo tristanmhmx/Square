@@ -95,5 +95,10 @@ namespace Square.iOS
 			UIApplication.SharedApplication.ApplicationIconBadgeNumber = 1;
 			base.DidReceiveRemoteNotification(application, userInfo, completionHandler);
 		}
+
+		public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
+		{
+			return true;
+		}
 	}
 }

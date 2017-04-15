@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Xamarin.Forms;
+
 namespace Square
 {
 	public class LocationModel
@@ -8,6 +9,6 @@ namespace Square
 		internal string address;
 		internal double latitude;
 		internal double longitude;
-		internal string pictureUrl;
+		internal ImageSource pictureUrl;
 	}
 }

@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System.IO;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Square
@@ -84,7 +85,7 @@ namespace Square
 			}
 		}
 
-		public string PictureUrl
+		public ImageSource PictureUrl
 		{
 			get
 			{
@@ -101,6 +102,7 @@ namespace Square
 		}
 
 		public ICommand TakePicture { get; set; }
+		public ICommand Navigate { get; set; }
 
 		public LocationViewModel(string id)
 		{
@@ -114,6 +116,21 @@ namespace Square
 				Longitude = pin.Longitude;
 			}
 			TakePicture = new Command(ReadPicture);
+			Navigate = new Command(NavigateTo);
+		}
+
+		void NavigateTo(object obj)
+		{
+			var url = $"waze://?ll={Latitude},{Longitude}&navigate=yes";
+			switch (Device.OS)
+			{
+				case TargetPlatform.Android:
+					Device.OpenUri(new System.Uri(url));
+					break;
+				case TargetPlatform.iOS:
+					DependencyService.Get<IAppUrlService>().OpenUrl(url);
+					break;
+			}
 		}
 
 		async void ReadPicture(object obj)
@@ -122,6 +139,7 @@ namespace Square
 			if (photoService.IsCameraAvailable)
 			{
 				var photo = await photoService.TakePhotoAsync();
+				PictureUrl = ImageSource.FromStream(() => new MemoryStream(photo));
 			}
 		}
 	}
